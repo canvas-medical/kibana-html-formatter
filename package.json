@@ -1,6 +1,6 @@
 {
-  "name": "kibana-html-formatter",
-  "version": "1.0.0",
+  "name": "html-formatter",
+  "version": "1.0.1",
   "description": "An HTML field formatter for Kibana",
   "main": "index.js",
   "scripts": {
