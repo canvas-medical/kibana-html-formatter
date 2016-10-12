@@ -1,6 +1,6 @@
-# kibana_html_field
+# kibana-html-formatter
 
-> An awesome Kibana plugin
+> An HTML field formatter for Kibana
 
 ---
 
