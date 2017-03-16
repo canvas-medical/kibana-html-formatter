@@ -3,8 +3,6 @@ import _ from 'lodash';
 import RegistryFieldFormatsProvider from 'ui/registry/field_formats';
 import IndexPatternsFieldFormatProvider from 'ui/index_patterns/_field_format/field_format';
 
-import './less/main.less';
-
 function HTMLFormatProvider(Private) {
   var FieldFormat = Private(IndexPatternsFieldFormatProvider);
 
@@ -23,7 +21,7 @@ function HTMLFormatProvider(Private) {
       return value;
     },
     html: function (value) {
-      return '<div class="html-value">' + value + '</div>';
+      return '<div class="html-value" style="display: block ! important;">' + value + '</div>';
     }
   };
 
