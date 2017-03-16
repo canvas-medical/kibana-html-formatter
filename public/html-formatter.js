@@ -1,8 +1,12 @@
-require('plugins/html-formatter/less/main.less');
+import _ from 'lodash';
+
+import RegistryFieldFormatsProvider from 'ui/registry/field_formats';
+import IndexPatternsFieldFormatProvider from 'ui/index_patterns/_field_format/field_format';
+
+import './less/main.less';
 
 function HTMLFormatProvider(Private) {
-  var _ = require('lodash');
-  var FieldFormat = Private(require('ui/index_patterns/_field_format/FieldFormat'));
+  var FieldFormat = Private(IndexPatternsFieldFormatProvider);
 
   _.class(HTML).inherits(FieldFormat);
 
@@ -26,4 +30,6 @@ function HTMLFormatProvider(Private) {
   return HTML;
 }
 
-require('ui/registry/field_formats').register(HTMLFormatProvider);
+RegistryFieldFormatsProvider.register(HTMLFormatProvider);
+
+export default HTMLFormatProvider;
