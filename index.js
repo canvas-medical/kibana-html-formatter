@@ -5,7 +5,7 @@ module.exports = function (kibana) {
     require: ['kibana', 'elasticsearch'],
 
     uiExports: {
-      visTypes: ['plugins/html-formatter/html-formatter']
+      fieldFormats: ['plugins/html-formatter/html-formatter']
     }
   });
 };
