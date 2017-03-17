@@ -1,33 +1,24 @@
-import _ from 'lodash';
-
-import RegistryFieldFormatsProvider from 'ui/registry/field_formats';
+import fieldFormats from 'ui/registry/field_formats';
 import IndexPatternsFieldFormatProvider from 'ui/index_patterns/_field_format/field_format';
 
-function HTMLFormatProvider(Private) {
-  var FieldFormat = Private(IndexPatternsFieldFormatProvider);
+export default function HTMLFormatProvider(Private) {
+  let FieldFormat = Private(IndexPatternsFieldFormatProvider);
 
-  _.class(HTML).inherits(FieldFormat);
+  class HTML extends FieldFormat {
+    constructor(params) {
+      super(params);
+    }
 
-  function HTML(params) {
-    HTML.Super.call(this, params);
+    _convert(value) {
+      return '<div class="html-value" style="display: block ! important;">' + value + '</div>';
+    }
   }
 
   HTML.id = 'html-formatter';
   HTML.title = 'HTML Field';
   HTML.fieldType = ['string'];
 
-  HTML.prototype._convert = {
-    text: function (value) {
-      return value;
-    },
-    html: function (value) {
-      return '<div class="html-value" style="display: block ! important;">' + value + '</div>';
-    }
-  };
-
   return HTML;
 }
 
-RegistryFieldFormatsProvider.register(HTMLFormatProvider);
-
-export default HTMLFormatProvider;
+fieldFormats.register(HTMLFormatProvider);
