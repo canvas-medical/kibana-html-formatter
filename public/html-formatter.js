@@ -8,11 +8,12 @@ export default function HTMLFormatProvider(Private) {
     constructor(params) {
       super(params);
     }
-
-    _convert(value) {
-      return '<div class="html-value" style="display: block ! important;">' + value + '</div>';
-    }
   }
+
+  HTML.prototype._convert = {
+    text: value => value,
+    html: value => '<div class="html-value" style="display: block ! important;">' + value + '</div>'
+  };
 
   HTML.id = 'html-formatter';
   HTML.title = 'HTML Field';
